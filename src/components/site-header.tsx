@@ -20,6 +20,7 @@ const taglines = [
 function MailIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.8 5.3h16.4c.8 0 1.5.7 1.5 1.5v10.4c0 .8-.7 1.5-1.5 1.5H3.8c-.8 0-1.5-.7-1.5-1.5V6.8c0-.8.7-1.5 1.5-1.5Z" /><path d="m3.2 6.4 8.8 6.4 8.8-6.4" /></svg>; }
 function PhoneIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.3 2.8 10 8.1 7.9 10a15.2 15.2 0 0 0 6.1 6.1l1.9-2.1 5.3 2.7-.8 3.5c-.2.8-.9 1.4-1.8 1.4C9.7 21.6 2.4 14.3 2.4 5.4c0-.9.6-1.6 1.4-1.8l3.5-.8Z" /></svg>; }
 function ArrowIcon() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" /></svg>; }
+function ChevronIcon() { return <svg viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1 5 5 5-5" /></svg>; }
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,7 +47,7 @@ export function SiteHeader() {
         </a>
         <nav className={styles.desktopNav} aria-label="Primary navigation">
           {navigation.map((item, index) => item.label === "Amenities" ? <div className={styles.navItem} key={item.label}>
-            <a href={item.href}>Amenities <span className={styles.chevron}>⌄</span></a>
+            <a href={item.href}>Amenities <span className={styles.chevron}><ChevronIcon /></span></a>
             <div className={styles.megaMenu}>
               <div className={styles.megaIntro}><span>DISCOVER THE PROJECT</span><strong>Everything for a better lifestyle</strong><p>Thoughtfully planned spaces, modern infrastructure and a secure green community.</p><a href="#amenities">Explore all amenities →</a></div>
               <div className={styles.megaColumn}><strong>Community</strong><a href="#amenities">Gated Community</a><a href="#amenities">24×7 Security</a><a href="#amenities">CCTV Surveillance</a></div>

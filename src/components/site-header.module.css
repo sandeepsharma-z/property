@@ -20,7 +20,9 @@
 .desktopNav > a:hover, .desktopNav .active, .navItem:hover > a { color: #075932; }
 .desktopNav > a:hover::after, .desktopNav .active::after, .navItem:hover > a::after { transform: scaleX(1); }
 .navItem { position: relative; height: 100%; }
-.chevron { margin-left: 5px; color: #bd8e07; font-size: 15px; }
+.chevron { width: 11px; height: 8px; margin-left: 6px; display: inline-flex; align-items: center; justify-content: center; transition: transform .22s ease; }
+.chevron svg { width: 100%; height: 100%; fill: none; stroke: #b78600; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.navItem:hover .chevron, .navItem:focus-within .chevron { transform: rotate(180deg); }
 .megaMenu { position: fixed; top: 110px; left: 50%; width: min(1120px,calc(100vw - 56px)); padding: 25px; display: grid; grid-template-columns: 1.35fr repeat(3,1fr); gap: 28px; border-top: 3px solid #d8a20c; border-radius: 0 0 18px 18px; background: rgba(255,255,255,.98); box-shadow: 0 22px 45px rgba(0,49,34,.2); opacity: 0; visibility: hidden; transform: translate(-50%,10px); transition: opacity .22s ease,transform .22s ease,visibility .22s ease; }
 .navItem:hover .megaMenu, .navItem:focus-within .megaMenu { opacity: 1; visibility: visible; transform: translate(-50%,0); }
 .megaIntro { padding: 17px 20px; border-radius: 13px; color: #fff; background: linear-gradient(135deg,#064a38,#087256); white-space: normal; }
