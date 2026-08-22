@@ -1,0 +1,40 @@
+.header { position: relative; z-index: 50; width: 100%; font-family: Arial, Helvetica, sans-serif; }
+.topBar { height: 52px; color: #fff; background: linear-gradient(90deg, #006327 0%, #006b38 46%, #0a5d3d 100%); }
+.topBarInner { width: 100%; height: 100%; margin: 0 auto; padding: 0 43px; display: flex; align-items: center; justify-content: space-between; }
+.contactLinks { display: flex; align-items: center; gap: 53px; }
+.contactLinks a { display: inline-flex; align-items: center; gap: 9px; color: #fff; font-size: 17px; line-height: 1; font-weight: 700; letter-spacing: .15px; text-decoration: none; }
+.contactIcon { display: inline-flex; width: 24px; height: 24px; }
+.contactIcon svg { width: 100%; height: 100%; fill: #fff; stroke: #fff; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.contactLinks a:first-child .contactIcon svg { fill: none; stroke-width: 2; }
+.tagline { margin: 0 1px 0 0; color: rgba(255,255,255,.91); font-family: Georgia, "Times New Roman", serif; font-size: 17px; font-style: italic; letter-spacing: .2px; }
+.tagline span { display: inline-block; margin-left: 6px; font-size: 20px; transform: rotate(-22deg); }
+.navBar { height: 88px; background: #fff; box-shadow: 0 8px 25px rgba(5,42,28,.09); }
+.navInner { width: 100%; height: 100%; margin: 0 auto; padding: 0 44px; display: flex; align-items: center; }
+.logos { display: flex; align-items: center; flex: 0 0 auto; gap: 45px; height: 100%; text-decoration: none; }
+.logos img:first-child { width: 164px; height: 50px; object-fit: contain; }
+.logos img:last-child { width: 82px; height: 68px; object-fit: contain; }
+.desktopNav { flex: 1; height: 100%; margin-left: 205px; display: flex; align-items: center; gap: 51px; white-space: nowrap; }
+.desktopNav a { position: relative; height: 100%; display: inline-flex; align-items: center; color: #10181a; font-size: 16px; font-weight: 700; text-decoration: none; transition: color .2s ease; }
+.desktopNav a::after { content: ""; position: absolute; right: 0; bottom: 23px; left: 0; height: 3px; border-radius: 3px; background: #075932; transform: scaleX(0); transition: transform .2s ease; }
+.desktopNav a:hover, .desktopNav .active { color: #075932; }
+.desktopNav a:hover::after, .desktopNav .active::after { transform: scaleX(1); }
+.applyButton, .mobileApply { display: inline-flex; align-items: center; justify-content: center; gap: 25px; flex: 0 0 auto; width: 180px; height: 55px; border-radius: 12px; color: #fff; background: linear-gradient(120deg,#e9ad16 0%,#c49608 100%); box-shadow: 0 6px 18px rgba(178,137,10,.34); font-size: 16px; font-weight: 700; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+.applyButton svg, .mobileApply svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.applyButton:hover { transform: translateY(-2px); box-shadow: 0 9px 22px rgba(178,137,10,.4); }
+.menuButton { display: block; width: 43px; height: 43px; margin-left: auto; padding: 9px; border: 0; background: transparent; cursor: pointer; }
+.menuButton span { display: block; width: 100%; height: 2px; margin: 5px 0; border-radius: 2px; background: #075932; }
+.overlay { position: fixed; inset: 0; z-index: 80; visibility: hidden; background: rgba(0,0,0,.48); opacity: 0; transition: opacity .25s ease, visibility .25s ease; }
+.overlayOpen { visibility: visible; opacity: 1; }
+.mobileNav { position: fixed; top: 0; right: -310px; z-index: 90; width: min(310px,88vw); height: 100dvh; padding: 23px; background: #fff; box-shadow: -12px 0 32px rgba(0,0,0,.15); transition: right .28s ease; }
+.mobileNavOpen { right: 0; }
+.mobileNavHeader { display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid #dfe6e2; color: #075932; font-size: 17px; font-weight: 800; }
+.mobileNavHeader button { border: 0; color: #13251c; background: none; font-size: 32px; line-height: 1; cursor: pointer; }
+.mobileNav nav { display: flex; flex-direction: column; margin: 13px 0 24px; }
+.mobileNav nav a { padding: 13px 2px; border-bottom: 1px solid #e8ecea; color: #111a16; font-size: 15px; font-weight: 700; text-decoration: none; }
+.mobileApply { width: 100%; }
+@media (max-width: 1550px) { .desktopNav { margin-left: 90px; gap: 29px; } .logos { gap: 28px; } }
+@media (max-width: 1280px) { .topBarInner, .navInner { padding-right: 28px; padding-left: 28px; } .desktopNav { margin-left: 50px; gap: 20px; } .desktopNav a { font-size: 14px; } .applyButton { width: 154px; } }
+@media (min-width: 1081px) { .menuButton { display: none; } }
+@media (max-width: 1080px) { .desktopNav, .applyButton { display: none; } }
+@media (max-width: 700px) { .topBar { height: auto; min-height: 42px; } .topBarInner { padding: 8px 16px; } .contactLinks { width: 100%; justify-content: space-between; gap: 12px; } .contactLinks a { font-size: 11px; font-weight: 600; } .contactIcon { width: 17px; height: 17px; } .tagline { display: none; } .navBar { height: 72px; } .navInner { padding: 0 16px; } .logos { gap: 16px; } .logos img:first-child { width: 118px; height: 36px; } .logos img:last-child { width: 58px; height: 54px; } }
+@media (max-width: 430px) { .contactLinks a:first-child { max-width: 220px; overflow: hidden; text-overflow: ellipsis; } .contactLinks a:last-child { font-size: 0; } }
