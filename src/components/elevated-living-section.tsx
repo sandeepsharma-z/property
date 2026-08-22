@@ -25,8 +25,8 @@ export function ElevatedLivingSection() {
     <Image src="/images/elevated-living-community.png" alt="Premium landscaped residential community at sunset" fill sizes="100vw" className={styles.background} />
 
     <svg className={styles.curvedPanel} viewBox="0 0 900 940" preserveAspectRatio="none" aria-hidden="true">
-      <path className={styles.panelFill} d="M0 0H555C695 18 755 145 716 286C675 432 630 550 675 684C714 800 789 890 842 940H0Z" />
-      <path className={styles.curveLine} d="M555 1C695 18 755 145 716 286C675 432 630 550 675 684C714 800 789 890 842 939" />
+      <path className={styles.panelFill} d="M0 0H620C688 8 724 72 724 174C724 216 722 250 716 286C675 432 630 550 675 684C714 800 789 890 842 940H0Z" />
+      <path className={styles.curveLine} d="M620 1C688 8 724 72 724 174C724 216 722 250 716 286C675 432 630 550 675 684C714 800 789 890 842 939" />
     </svg>
 
     <div className={styles.content}>
@@ -38,9 +38,5 @@ export function ElevatedLivingSection() {
       <div className={styles.features}>{features.map((feature) => <article key={feature.icon}><span className={styles.icon}><FeatureIcon name={feature.icon} /></span><h3>{feature.title}</h3><i /><p>{feature.text}</p></article>)}</div>
       <a href="#about" className={styles.cta}>EXPLORE MORE <span>→</span></a>
     </div>
-
-    <svg className={styles.leafDecoration} viewBox="0 0 210 180" aria-hidden="true">
-      <path d="M5 178C52 129 75 88 91 18M50 133c-24 0-37-12-39-30 23-2 39 8 39 30ZM71 94c-20-8-28-23-22-40 21 6 31 20 22 40ZM87 53c-14-11-17-25-8-39 16 10 20 23 8 39ZM50 133c21-5 36-1 45 14M71 94c18-2 31 3 39 16M87 53c15 1 26 7 31 19" />
-    </svg>
   </section>;
 }
