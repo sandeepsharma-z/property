@@ -9,7 +9,7 @@
 .titleLine { display: block; width: 110px; height: 2px; margin-bottom: 20px; background: #deb957; }
 .investCopy { margin: 0; color: rgba(255,255,255,.9); font-size: 15px; line-height: 1.6; }
 .assurances { margin-top: 27px; display: grid; grid-template-columns: repeat(3,1fr); }
-.assurances article { position: relative; padding-right: 30px; display: flex; align-items: center; gap: 14px; }.assurances article::after { content: ""; position: absolute; top: 50%; left: calc(50% + 34px); width: 1px; height: 54px; background: rgba(226,197,116,.42); transform: translate(-50%,-50%); }.assurances article:last-child::after { display: none; }
+.assurances article { position: relative; padding-right: 30px; display: flex; align-items: center; gap: 14px; }.assurances article::after { content: ""; position: absolute; top: 50%; right: 64px; width: 1px; height: 54px; background: rgba(226,197,116,.42); transform: translateY(-50%); }.assurances article:last-child::after { display: none; }
 .assurances article > span { width: 56px; height: 56px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid #d9b554; border-radius: 50%; }.assurances svg { width: 28px; height: 28px; fill: none; stroke: #e6c56e; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .assurances strong { font-size: 15px; }.assurances p { margin: 7px 0 0; color: rgba(255,255,255,.72); font-size: 13px; }
 .applyArea { position: absolute; top: 50%; right: 9%; transform: translateY(-50%); text-align: center; }
