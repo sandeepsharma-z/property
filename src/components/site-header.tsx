@@ -26,14 +26,24 @@ export function SiteHeader() {
           <a href="mailto:support@southcitygreensddjayplots.org"><span className={styles.contactIcon}><MailIcon /></span>support@southcitygreensddjayplots.org</a>
           <a href="tel:+917290081081"><span className={styles.contactIcon}><PhoneIcon /></span>+91 7290081081</a>
         </div>
-        <p className={styles.tagline}>Your Land. A Better Tomorrow. <span>♧</span></p>
+        <p className={styles.tagline}>Your Land. A Better Tomorrow. <span>⌁</span></p>
       </div></div>
       <div className={styles.navBar}><div className={styles.navInner}>
         <a className={styles.logos} href="#" aria-label="South City Greens home">
           <Image src="https://southcitygreensddjayplots.org/assets/images/cellular-logo-Black.png" alt="Cellular Realty" width={164} height={50} priority unoptimized />
           <Image src="https://southcitygreensddjayplots.org/assets/images/vedmaan-log-black.png" alt="Vedmaan Developers" width={82} height={68} priority unoptimized />
         </a>
-        <nav className={styles.desktopNav} aria-label="Primary navigation">{navigation.map((item, index) => <a key={item.label} href={item.href} className={index === 0 ? styles.active : undefined}>{item.label}</a>)}</nav>
+        <nav className={styles.desktopNav} aria-label="Primary navigation">
+          {navigation.map((item, index) => item.label === "Amenities" ? <div className={styles.navItem} key={item.label}>
+            <a href={item.href}>Amenities <span className={styles.chevron}>⌄</span></a>
+            <div className={styles.megaMenu}>
+              <div className={styles.megaIntro}><span>DISCOVER THE PROJECT</span><strong>Everything for a better lifestyle</strong><p>Thoughtfully planned spaces, modern infrastructure and a secure green community.</p><a href="#amenities">Explore all amenities →</a></div>
+              <div className={styles.megaColumn}><strong>Community</strong><a href="#amenities">Gated Community</a><a href="#amenities">24×7 Security</a><a href="#amenities">CCTV Surveillance</a></div>
+              <div className={styles.megaColumn}><strong>Lifestyle</strong><a href="#amenities">Green Parks</a><a href="#amenities">Jogging Track</a><a href="#amenities">Children Play Area</a></div>
+              <div className={styles.megaColumn}><strong>Infrastructure</strong><a href="#amenities">Wide Internal Roads</a><a href="#amenities">Water & Sewerage</a><a href="#amenities">Street Lighting</a></div>
+            </div>
+          </div> : <a key={item.label} href={item.href} className={index === 0 ? styles.active : undefined}>{item.label}</a>)}
+        </nav>
         <a href="#apply" className={styles.applyButton}>Apply Now <ArrowIcon /></a>
         <button className={styles.menuButton} type="button" aria-label="Open navigation menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </div></div>

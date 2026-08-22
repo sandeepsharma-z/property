@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { Caveat } from "next/font/google";
 import "./globals.css";
+
+const caveat = Caveat({
+  variable: "--font-cursive",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "South City Greens | Residential Plots in Jhajjar",
@@ -8,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`${caveat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
