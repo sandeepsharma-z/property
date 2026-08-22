@@ -47,7 +47,7 @@ export function InvestmentFooter() {
         <section className={styles.contactColumn}>
           <h3>CONTACT US</h3><i />
           <a href="tel:+917290081081"><span><Icon name="phone" /></span><div><strong>+91 7290081081</strong><small>Call us for any queries</small></div></a>
-          <a href="mailto:support@southcitygreensddjayplots.org"><span><Icon name="mail" /></span><div><strong>support@southcitygreensddjayplots.org</strong><small>We&apos;ll reply as soon as possible</small></div></a>
+          <a href="mailto:hello@southcitygreens.in"><span><Icon name="mail" /></span><div><strong>hello@southcitygreens.in</strong><small>We&apos;ll reply as soon as possible</small></div></a>
         </section>
         <section className={styles.linksColumn}><h3>QUICK LINKS</h3><i /><a href="#">› <span>Terms &amp; Conditions</span></a><a href="#">› <span>Privacy Policy</span></a><a href="#">› <span>Refund &amp; Cancellation</span></a><a href="#contact">› <span>Contact Us</span></a></section>
         <section className={styles.disclaimer}><h3>DISCLAIMER</h3><i /><p>All images, illustrations, renderings and artistic impressions used in this advertisement are indicative in nature and meant solely for illustrative and representational purposes. They do not constitute a legal offer or form part of any contractual commitment. Actual development, specifications, dimensions, amenities, landscaping, infrastructure, and final execution may vary based on site conditions, statutory approvals, and project requirements. Prospective applicants are advised to verify all details and refer to the official project documents before making any investment decision.</p></section>
