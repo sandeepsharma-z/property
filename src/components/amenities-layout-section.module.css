@@ -6,14 +6,18 @@
 .sectionHeading h2 em,.subHeading h2 em { color: #397441; font-style: normal; }
 .sectionHeading > div { width: 150px; height: 2px; background: linear-gradient(90deg,transparent,#397441,transparent); }
 .sliderWrap { position: relative; margin-top: 32px; padding: 0 42px; }
-.amenitiesTrack { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.amenitiesTrack { display: flex; gap: 9px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 8px 2px 14px; }
 .amenitiesTrack::-webkit-scrollbar { display: none; }
-.amenityCard { flex: 0 0 calc((100% - 90px)/6); min-width: 145px; padding: 10px 8px 16px; display: flex; flex-direction: column; align-items: center; scroll-snap-align: start; text-align: center; border-radius: 18px; transition: background .25s ease,transform .25s ease; }
-.amenityCard:hover { background: #f2f7f2; transform: translateY(-4px); }
-.amenityCard > span { width: 86px; height: 86px; display: grid; place-items: center; border: 1px solid #d6e0d6; border-radius: 50%; background: #fff; box-shadow: 0 6px 18px rgba(29,68,42,.06); }
-.amenityCard svg { width: 43px; height: 43px; fill: none; stroke: #376e38; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.amenityCard strong { margin-top: 14px; font-family: Georgia,serif; font-size: 15px; font-weight: 500; }
-.arrow { position: absolute; top: 39px; z-index: 3; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #aebfae; border-radius: 50%; color: #2e6738; background: #fff; box-shadow: 0 5px 14px rgba(32,64,41,.1); font-size: 28px; line-height: 1; cursor: pointer; transition: color .2s ease,background .2s ease,transform .2s ease; }
+.amenityCard { flex: 0 0 calc((100% - 63px)/8); min-width: 132px; min-height: 194px; padding: 12px 7px 0; display: flex; flex-direction: column; align-items: center; overflow: hidden; scroll-snap-align: start; text-align: center; border: 1px solid #dce5dc; border-radius: 13px; background: linear-gradient(180deg,#fff 0%,#fdfefd 58%,#eef5ef 100%); box-shadow: 0 7px 19px rgba(24,61,35,.08); transition: border-color .25s ease,box-shadow .25s ease,transform .25s ease; }
+.amenityCard:hover { border-color: #83a988; box-shadow: 0 13px 27px rgba(24,61,35,.15); transform: translateY(-5px); }
+.amenityIcon { width: 54px; height: 54px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid #8caf90; border-radius: 50%; background: rgba(255,255,255,.95); box-shadow: 0 5px 14px rgba(29,68,42,.06); }
+.amenityCard svg { width: 29px; height: 29px; fill: none; stroke: #376e38; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.amenityCard strong { min-height: 35px; margin-top: 8px; display: flex; align-items: center; justify-content: center; font-family: Georgia,serif; font-size: 13px; line-height: 1.15; font-weight: 600; }
+.cardVisual { position: relative; width: calc(100% + 14px); height: 78px; margin-top: auto; overflow: hidden; }
+.cardVisual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(255,255,255,.9) 0%,transparent 42%); pointer-events: none; }
+.cardVisual img { object-fit: cover; transition: transform .5s ease; }
+.amenityCard:hover .cardVisual img { transform: scale(1.08); }
+.arrow { position: absolute; top: 84px; z-index: 3; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #aebfae; border-radius: 50%; color: #2e6738; background: #fff; box-shadow: 0 5px 14px rgba(32,64,41,.1); font-size: 28px; line-height: 1; cursor: pointer; transition: color .2s ease,background .2s ease,transform .2s ease; }
 .arrow:hover { color: #fff; background: #356f3f; transform: scale(1.06); }
 .prev { left: 0; }.next { right: 0; }
 .lowerGrid { margin-top: 65px; display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; }
@@ -34,6 +38,6 @@
 .connectivityRow strong { font-size: 14px; font-weight: 500; }
 .connectivityRow > em { color: #397441; font-size: 14px; font-style: normal; font-weight: 700; }
 
-@media (max-width: 1250px) { .container { width: calc(100% - 56px); } .amenityCard { flex-basis: calc((100% - 54px)/4); } .lowerGrid { gap: 35px; } .layoutPanel { padding-right: 34px; } .layoutImage { height: 500px; } }
-@media (max-width: 820px) { .section { padding: 58px 0 64px; } .container { width: calc(100% - 32px); } .sectionHeading h2 { font-size: 34px; } .sliderWrap { padding: 0 34px; } .amenityCard { flex-basis: calc((100% - 18px)/2); } .amenityCard > span { width: 76px; height: 76px; } .lowerGrid { margin-top: 48px; grid-template-columns: 1fr; } .layoutPanel { padding: 0 0 60px; border-right: 0; border-bottom: 1px solid #dce5dc; } .layoutImage { height: 440px; } .layoutButton { bottom: 20px; } .connectivityPanel { padding-left: 0; } }
+@media (max-width: 1250px) { .container { width: calc(100% - 56px); } .amenityCard { flex-basis: calc((100% - 27px)/4); } .lowerGrid { gap: 35px; } .layoutPanel { padding-right: 34px; } .layoutImage { height: 500px; } }
+@media (max-width: 820px) { .section { padding: 58px 0 64px; } .container { width: calc(100% - 32px); } .sectionHeading h2 { font-size: 34px; } .sliderWrap { padding: 0 34px; } .amenityCard { flex-basis: calc((100% - 9px)/2); } .lowerGrid { margin-top: 48px; grid-template-columns: 1fr; } .layoutPanel { padding: 0 0 60px; border-right: 0; border-bottom: 1px solid #dce5dc; } .layoutImage { height: 440px; } .layoutButton { bottom: 20px; } .connectivityPanel { padding-left: 0; } }
 @media (max-width: 500px) { .section { padding-top: 48px; } .sectionHeading h2 { font-size: 29px; } .amenityCard strong { font-size: 13px; } .layoutImage { height: 340px; } .subHeading h2 { font-size: 27px; } .connectivityRow { grid-template-columns: 39px 1fr auto; gap: 8px; } .connectivityRow strong,.connectivityRow > em { font-size: 12px; } }

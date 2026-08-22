@@ -23,9 +23,16 @@ function LineIcon({ name }: { name: AmenityIcon }) {
 }
 
 const amenities = [
-  ["Gated Community", "gate"], ["Children Play Area", "play"], ["CCTV Surveillance", "camera"],
-  ["24x7 Security", "shield"], ["Wide Roads", "road"], ["Water Supply", "water"],
-  ["Sewerage System", "sewer"], ["Street Lights", "light"], ["Parks & Green Area", "park"], ["Electricity", "power"],
+  ["Gated Community", "gate", "/images/south-city-hero-family.png"],
+  ["Children Play Area", "play", "/images/amenity-play-area.webp"],
+  ["CCTV Surveillance", "camera", "/images/amenity-sports-court.webp"],
+  ["24x7 Security", "shield", "/images/south-city-hero-family.png"],
+  ["Wide Roads", "road", "/images/south-city-hero-aerial.png"],
+  ["Water Supply", "water", "/images/amenity-jogging-track.webp"],
+  ["Sewerage System", "sewer", "/images/south-city-hero-aerial.png"],
+  ["Street Lights", "light", "/images/amenity-jogging-track.webp"],
+  ["Parks & Green Area", "park", "/images/amenity-play-area.webp"],
+  ["Electricity", "power", "/images/south-city-hero-lifestyle.png"],
 ] as const;
 
 const connectivity = [
@@ -49,7 +56,7 @@ export function AmenitiesLayoutSection() {
     const track = trackRef.current;
     if (!track) return;
     const card = track.firstElementChild as HTMLElement | null;
-    const amount = (card?.offsetWidth ?? 180) + 18;
+    const amount = (card?.offsetWidth ?? 180) + 9;
     const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
     const atStart = track.scrollLeft <= 8;
     if (direction > 0 && atEnd) track.scrollTo({ left: 0, behavior: "smooth" });
@@ -67,7 +74,7 @@ export function AmenitiesLayoutSection() {
       <header className={styles.sectionHeading}><span className={styles.leafMark}>⌁</span><h2>Project <em>Amenities</em></h2><div /></header>
       <div className={styles.sliderWrap}>
         <button type="button" className={`${styles.arrow} ${styles.prev}`} onClick={() => move(-1)} aria-label="Previous amenities">‹</button>
-        <div className={styles.amenitiesTrack} ref={trackRef}>{amenities.map(([label, icon]) => <article className={styles.amenityCard} key={label}><span><LineIcon name={icon} /></span><strong>{label}</strong></article>)}</div>
+        <div className={styles.amenitiesTrack} ref={trackRef}>{amenities.map(([label, icon, image]) => <article className={styles.amenityCard} key={label}><span className={styles.amenityIcon}><LineIcon name={icon} /></span><strong>{label}</strong><div className={styles.cardVisual}><Image src={image} alt="" fill sizes="220px" /></div></article>)}</div>
         <button type="button" className={`${styles.arrow} ${styles.next}`} onClick={() => move(1)} aria-label="Next amenities">›</button>
       </div>
 
