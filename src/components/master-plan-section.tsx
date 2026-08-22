@@ -1,11 +1,6 @@
 import Image from "next/image";
 import styles from "./master-plan-section.module.css";
 
-const legend = [
-  ["#f5d878", "Residential"], ["#e99a91", "Commercial"], ["#b8a2ce", "Industrial"],
-  ["#8fc4df", "Public & Semi-Public"], ["#8fbe72", "Green Spaces"], ["#275f38", "Transport & Roads"],
-];
-
 const reasons = [
   ["Located on 75 Meter Wide Road", "road"],
   ["Sector 36 Next to NH-352 & KMP Expressway", "highway"],
@@ -33,21 +28,7 @@ export function MasterPlanSection() {
       <div className={styles.heading}><h2 id="master-plan-title">JHAJJAR MASTER PLAN 2031</h2><span /></div>
 
       <div className={styles.planCard}>
-        <aside className={styles.legend}>
-          <strong>JHAJJAR</strong><small>MASTER PLAN 2031</small><i />
-          <h3>LEGEND</h3>
-          {legend.map(([color,label]) => <p key={label}><b style={{ background: color }} />{label}</p>)}
-          <div className={styles.roadKey}><span /><em>MAJOR ROADS &amp; CONNECTIVITY</em></div>
-        </aside>
-        <div className={styles.map}><Image src="/images/jhajjar-master-plan-2031.png" alt="Illustrative Jhajjar Master Plan 2031" fill sizes="(max-width: 800px) 100vw, 75vw" className={styles.mapImage} /></div>
-        <aside className={styles.roadTable}>
-          <h3>LAND RESERVATION / MAJOR ROADS</h3>
-          <div><b>75 M &amp; ABOVE ROAD</b><span>Primary arterial roads</span></div>
-          <div><b>60 M ROAD</b><span>Secondary arterial roads</span></div>
-          <div><b>45 M ROAD</b><span>Sub-arterial roads</span></div>
-          <div><b>RAILWAY LINE</b><span>Proposed corridor</span></div>
-          <p>Illustrative planning vision for connected and sustainable growth.</p>
-        </aside>
+        <Image src="/images/master-plan-jhajjar.webp" alt="Jhajjar Master Plan 2031" fill sizes="calc(100vw - 86px)" className={styles.mapImage} />
       </div>
 
       <div className={styles.reasonsHeading}><h2>Why South City Green?</h2><span /></div>
