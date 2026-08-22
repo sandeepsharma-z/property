@@ -13,6 +13,13 @@ function FeatureIcon({ name }: { name: FeatureIcon }) {
   return <svg viewBox="0 0 24 24" aria-hidden="true">{icons[name]}</svg>;
 }
 
+function EyebrowIcon() {
+  return <svg viewBox="0 0 28 28" aria-hidden="true">
+    <path d="M6 24C9 18 12 12 18 5" />
+    <path d="M13 12C9 12 7 10 7 7c4-.3 7 1.3 6 5ZM17 7c0-4 2-6 6-6 .3 4-1.5 7-6 6ZM10 17c-4 .4-6 2.5-6 6 4 .2 7-1.8 6-6Z" />
+  </svg>;
+}
+
 const features = [
   { icon: "leaf" as const, title: <>Landscaped<br />Green Spaces</>, text: <>Lush lawns, gardens<br />&amp; open spaces</> },
   { icon: "gate" as const, title: <>Premium<br />Gated Entry</>, text: <>24x7 security for<br />complete peace<br />of mind</> },
@@ -25,12 +32,12 @@ export function ElevatedLivingSection() {
     <Image src="/images/elevated-living-community.png" alt="Premium landscaped residential community at sunset" fill sizes="100vw" className={styles.background} />
 
     <svg className={styles.curvedPanel} viewBox="0 0 900 940" preserveAspectRatio="none" aria-hidden="true">
-      <path className={styles.panelFill} d="M0 0H620C690 8 730 75 724 174C720 222 716 257 704 305C680 401 638 501 660 630C678 738 754 858 842 940H0Z" />
-      <path className={styles.curveLine} d="M620 1C690 8 730 75 724 174C720 222 716 257 704 305C680 401 638 501 660 630C678 738 754 858 842 939" />
+      <path className={styles.panelFill} d="M0 0H455C610 10 700 145 650 300C600 455 560 550 610 685C660 820 810 910 900 940H0Z" />
+      <path className={styles.curveLine} d="M455 1C610 10 700 145 650 300C600 455 560 550 610 685C660 820 810 910 899 939" />
     </svg>
 
     <div className={styles.content}>
-      <p className={styles.eyebrow}><span><FeatureIcon name="leaf" /></span>A LIFE. ELEVATED.</p>
+      <p className={styles.eyebrow}><span><EyebrowIcon /></span>A LIFE. ELEVATED.</p>
       <h2 id="elevated-living-title">Experience<br /><em>Elevated Living</em></h2>
       <span className={styles.titleLine} />
       <p className={styles.description}>Where modern families thrive, investments grow,<br />and nature inspires every moment.<br />A thoughtfully planned community crafted for<br />today, designed for generations.</p>
