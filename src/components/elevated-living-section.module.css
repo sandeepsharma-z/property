@@ -1,6 +1,6 @@
 .section { position: relative; isolation: isolate; height: clamp(650px,45vw,760px); min-height: 650px; overflow: hidden; color: #fff; background: #052d24; }
 .background { z-index: -3; object-fit: cover; object-position: center; }
-.curvedPanel { position: absolute; inset: 0 auto 0 0; z-index: -1; width: 55%; height: 100%; overflow: visible; }
+.curvedPanel { position: absolute; inset: 0 auto 0 0; z-index: -1; width: 63%; height: 100%; overflow: visible; }
 .panelFill { fill: rgba(0,42,34,.94); }
 .curveLine { fill: none; stroke: #efc15c; stroke-width: 2.2; vector-effect: non-scaling-stroke; }
 .content { position: relative; z-index: 2; width: min(650px,43vw); padding: 72px 0 0 74px; }
