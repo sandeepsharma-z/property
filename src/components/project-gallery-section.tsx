@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./project-gallery-section.module.css";
 
 const gallery = [
@@ -27,9 +27,21 @@ function GalleryIcon({ name }: { name: string }) {
 
 export function ProjectGallerySection() {
   const [active, setActive] = useState(0);
-  useEffect(() => { const timer = window.setInterval(() => setActive((value) => (value + 1) % gallery.length), 4200); return () => window.clearInterval(timer); }, []);
-  const visible = useMemo(() => Array.from({ length: 4 }, (_, index) => gallery[(active + index) % gallery.length]), [active]);
-  const move = (direction: number) => setActive((active + direction + gallery.length) % gallery.length);
+  const [perView, setPerView] = useState(4);
+  const lastPosition = gallery.length - perView;
+
+  useEffect(() => {
+    const updatePerView = () => {
+      const nextPerView = window.innerWidth <= 650 ? 1 : window.innerWidth <= 1100 ? 2 : 4;
+      setPerView(nextPerView);
+      setActive((value) => Math.min(value, gallery.length - nextPerView));
+    };
+    const frame = window.requestAnimationFrame(updatePerView);
+    window.addEventListener("resize", updatePerView);
+    return () => { window.cancelAnimationFrame(frame); window.removeEventListener("resize", updatePerView); };
+  }, []);
+  useEffect(() => { const timer = window.setInterval(() => setActive((value) => value >= lastPosition ? 0 : value + 1), 4200); return () => window.clearInterval(timer); }, [lastPosition]);
+  const move = (direction: number) => setActive((value) => direction > 0 ? (value >= lastPosition ? 0 : value + 1) : (value <= 0 ? lastPosition : value - 1));
 
   return <section className={styles.section} id="gallery" aria-labelledby="project-gallery-title">
     <div className={styles.heading}>
@@ -41,18 +53,18 @@ export function ProjectGallerySection() {
 
     <div className={styles.viewport} aria-live="polite">
       <button className={`${styles.sideArrow} ${styles.previous}`} onClick={() => move(-1)} aria-label="Previous gallery slide">‹</button>
-      <div className={styles.cards} key={active}>{visible.map((item) => <article className={styles.card} key={`${item.title}-${active}`}>
-        <div className={styles.imageWrap}><Image src={item.image} alt={item.title} fill sizes="(max-width: 700px) 86vw, (max-width: 1050px) 46vw, 24vw" className={styles.image} /></div>
-        <span className={styles.icon}><GalleryIcon name={item.icon} /></span>
-        <h3>{item.title}</h3>
-        <p>{item.text}</p>
-      </article>)}</div>
+      <div className={styles.trackClip}><div className={styles.cards} data-active={active}>{gallery.map((item) => <article className={styles.card} key={item.title}>
+          <div className={styles.imageWrap}><Image src={item.image} alt={item.title} fill sizes="(max-width: 700px) 86vw, (max-width: 1100px) 46vw, 24vw" className={styles.image} /></div>
+          <span className={styles.icon}><GalleryIcon name={item.icon} /></span>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>)}</div></div>
       <button className={`${styles.sideArrow} ${styles.next}`} onClick={() => move(1)} aria-label="Next gallery slide">›</button>
     </div>
 
     <div className={styles.controls}>
       <button className={styles.roundArrow} onClick={() => move(-1)} aria-label="Previous slide">‹</button>
-      <div className={styles.dots}>{gallery.map((item, index) => <button key={item.title} className={index === active ? styles.activeDot : ""} onClick={() => setActive(index)} aria-label={`Show ${item.title}`} />)}</div>
+      <div className={styles.dots}>{Array.from({ length: lastPosition + 1 }, (_, index) => <button key={index} className={index === active ? styles.activeDot : ""} onClick={() => setActive(index)} aria-label={`Show gallery position ${index + 1}`} />)}</div>
       <button className={styles.roundArrow} onClick={() => move(1)} aria-label="Next slide">›</button>
     </div>
   </section>;
