@@ -32,8 +32,8 @@ export function ElevatedLivingSection() {
     <Image src="/images/elevated-living-community.png" alt="Premium landscaped residential community at sunset" fill sizes="100vw" className={styles.background} />
 
     <svg className={styles.curvedPanel} viewBox="0 0 900 940" preserveAspectRatio="none" aria-hidden="true">
-      <path className={styles.panelFill} d="M0 0H455C610 10 700 145 650 300C600 455 560 550 610 685C660 820 810 910 900 940H0Z" />
-      <path className={styles.curveLine} d="M455 1C610 10 700 145 650 300C600 455 560 550 610 685C660 820 810 910 899 939" />
+      <path className={styles.panelFill} d="M0 0H530C680 15 754 150 700 303C646 456 610 552 650 684C687 807 768 897 825 940H0Z" />
+      <path className={styles.curveLine} d="M530 0C680 15 754 150 700 303C646 456 610 552 650 684C687 807 768 897 825 940" />
     </svg>
 
     <div className={styles.content}>
