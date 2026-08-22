@@ -40,7 +40,16 @@ export function ProjectOverviewSection() {
   return <section className={styles.section} id="about">
     <div className={styles.ambient} />
     <div className={styles.container}>
-      <div className={styles.announcement}><OverviewIcon name="megaphone" /><strong>Important Announcements</strong><span className={styles.announcementDivider} /><p>33% plots are reserved for government employees and women applicants</p></div>
+      <div className={styles.announcement}>
+        <div className={styles.announcementLabel}><OverviewIcon name="megaphone" /><strong>Important Announcements</strong></div>
+        <span className={styles.announcementDivider} />
+        <div className={styles.marqueeViewport}>
+          <div className={styles.marqueeTrack}>
+            <span>33% plots are reserved for government employees and women applicants</span>
+            <span aria-hidden="true">33% plots are reserved for government employees and women applicants</span>
+          </div>
+        </div>
+      </div>
 
       <div className={styles.dateGrid}>
         <article className={styles.dateCard}><span className={styles.dateIcon}><OverviewIcon name="calendar" /></span><div><p>PROJECT START DATE</p><strong>21 July 2026</strong><i /></div></article>

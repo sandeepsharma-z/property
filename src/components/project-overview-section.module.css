@@ -1,11 +1,16 @@
 .section { position: relative; isolation: isolate; overflow: hidden; padding: 22px 0 70px; color: #15231d; background: #fbfaf7; }
 .ambient { position: absolute; inset: 90px 0 0; z-index: -1; opacity: .09; background: linear-gradient(90deg,#fff 0%,transparent 18%,transparent 82%,#fff 100%),url('/images/south-city-hero-family.png') center/cover no-repeat; filter: saturate(.7); }
 .container { width: calc(100% - 86px); margin: 0 auto; }
-.announcement { min-height: 58px; padding: 0 46px; display: flex; align-items: center; justify-content: center; gap: 14px; border: 1px solid rgba(211,158,35,.26); border-radius: 11px; background: rgba(255,255,255,.88); box-shadow: 0 8px 24px rgba(36,49,42,.09); }
+.announcement { min-height: 58px; padding: 0 30px; display: flex; align-items: center; border: 1px solid rgba(211,158,35,.26); border-radius: 11px; background: rgba(255,255,255,.88); box-shadow: 0 8px 24px rgba(36,49,42,.09); overflow: hidden; }
+.announcementLabel { flex: 0 0 auto; display: flex; align-items: center; gap: 13px; }
 .announcement svg { width: 27px; height: 27px; fill: none; stroke: #d6a029; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.announcement strong { color: #17492f; font-size: 15px; }
-.announcementDivider { width: 1px; height: 21px; margin: 0 24px; background: #386149; }
-.announcement p { margin: 0; color: #3e4441; font-size: 15px; }
+.announcement strong { color: #17492f; font-size: 15px; white-space: nowrap; }
+.announcementDivider { width: 1px; height: 24px; flex: 0 0 auto; margin: 0 28px; background: #386149; }
+.marqueeViewport { min-width: 0; flex: 1; overflow: hidden; }
+.marqueeTrack { width: max-content; display: flex; align-items: center; animation: announcementMarquee 18s linear infinite; will-change: transform; }
+.marqueeTrack span { padding-right: 100px; color: #3e4441; font-size: 15px; white-space: nowrap; }
+.announcement:hover .marqueeTrack { animation-play-state: paused; }
+@keyframes announcementMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .dateGrid { margin-top: 24px; display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
 .dateCard { position: relative; overflow: hidden; min-height: 140px; padding: 25px 32px; display: flex; align-items: center; gap: 28px; border: 1px solid rgba(220,167,37,.55); border-radius: 12px; color: #fff; background: linear-gradient(125deg,#0b412b 0%,#0d5436 60%,#345f2e 100%); box-shadow: 0 8px 18px rgba(13,63,43,.15); transition: transform .25s ease,box-shadow .25s ease; }
 .dateCard::after { content: ""; position: absolute; right: -20px; bottom: -65px; width: 75%; height: 120px; border-top: 1px solid rgba(255,255,255,.07); border-radius: 50%; transform: rotate(-12deg); }
@@ -53,5 +58,6 @@
 .eyeIcon svg { width: 19px; height: 19px; fill: none; stroke: #0d3478; stroke-width: 1.8; }
 
 @media (max-width: 1250px) { .container { width: calc(100% - 56px); } .dateCard { padding: 21px; gap: 18px; } .dateIcon { width: 65px; height: 65px; } .dateCard strong { font-size: 22px; } .contentGrid { grid-template-columns: 1fr 1fr; gap: 30px; } .documents { grid-column: 1 / 3; } .documentList { display: grid; grid-template-columns: repeat(2,1fr); } .documentList a:nth-child(odd) { border-right: 1px solid #e0e3e7; } }
-@media (max-width: 820px) { .section { padding-top: 16px; } .container { width: calc(100% - 32px); } .announcement { padding: 12px 18px; flex-wrap: wrap; gap: 8px; text-align: center; } .announcementDivider { display: none; } .announcement p { width: 100%; font-size: 12px; } .dateGrid { grid-template-columns: 1fr; gap: 11px; } .dateCard { min-height: 108px; } .contentGrid { grid-template-columns: 1fr; } .documents { grid-column: auto; } .mainImage { height: 300px; } .documentList { grid-template-columns: 1fr; } .documentList a:nth-child(odd) { border-right: 0; } }
+@media (max-width: 820px) { .section { padding-top: 16px; } .container { width: calc(100% - 32px); } .announcement { min-height: 54px; padding: 0 14px; } .announcementLabel { gap: 8px; } .announcementLabel strong { font-size: 12px; } .announcement svg { width: 21px; height: 21px; } .announcementDivider { margin: 0 13px; } .marqueeTrack span { padding-right: 65px; font-size: 12px; } .dateGrid { grid-template-columns: 1fr; gap: 11px; } .dateCard { min-height: 108px; } .contentGrid { grid-template-columns: 1fr; } .documents { grid-column: auto; } .mainImage { height: 300px; } .documentList { grid-template-columns: 1fr; } .documentList a:nth-child(odd) { border-right: 0; } }
+@media (prefers-reduced-motion: reduce) { .marqueeTrack { animation-play-state: paused; } }
 @media (max-width: 520px) { .section { padding-bottom: 45px; } .dateCard { padding: 18px; } .dateIcon { width: 58px; height: 58px; } .dateIcon svg { width: 29px; height: 29px; } .dateCard strong { font-size: 19px; } .mainImage { height: 225px; } .thumbnails > div { height: 105px; } .about h2 { font-size: 27px; } .features { grid-template-columns: repeat(2,1fr); gap: 18px 0; } .features > div:nth-child(2) { border-right: 0; } .documentsHeader h2 { font-size: 19px; } }
